@@ -45,7 +45,43 @@ def star_1():
 
     print(sum(signal_strength))
 
+def draw_pixel(cycle, sprite_pos):
+    crt_width = 40
+    if cycle in sprite_pos:
+        print("#", end="")
+    else:
+        print(".", end="")
+
+    if (cycle + 1) % crt_width == 0:
+        print()
+        for j in range(3):
+            sprite_pos[j] += 40
+
+
+def star_2():
+    sprite_pos = [0, 1, 2]
+    crt_height = 6
+    cycle = 0
+
+    for i in range(len(dataStream)):
+        ins = dataStream[i].split(" ")
+
+        if ins[0] == "noop":
+            draw_pixel(cycle, sprite_pos)
+            cycle += 1
+        elif ins[0] == "addx":
+            draw_pixel(cycle, sprite_pos)
+            cycle += 1
+            draw_pixel(cycle, sprite_pos)
+            for j in range(3):
+                sprite_pos[j] += int(ins[1])
+            cycle += 1
+
+
+
+
+
 parse_data()
-star_1()
+star_2()
 
 
