@@ -118,7 +118,7 @@ def star_2():
                     # print("\t\tItem with worry level", worry, "is thrown to monkey", monkeys[i]["false"])
 
                 #monkeys[i]["items"].remove(item)
-        if r + 1 in [1, 20] or (r + 1) % 100 == 0:
+        if r + 1 in [1, 20] or (r + 1) % 1000 == 0:
             currently_inspected(r + 1)
 
 
